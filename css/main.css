@@ -365,8 +365,22 @@ header{
   object-fit: cover;
   position: absolute;
 }
+/* .sc_02 .love .img_wrap .front{
+  z-index: 1;
+}
+.sc_02 .love .img_wrap.reverse .front{
+  z-index: 0;
+} */
 .sc_02 .love .img_wrap .back{
   transform: rotateY(180deg);
+  opacity: 0;
+  transition: opacity 0.1s;
+  transition-delay: 0.2s;
+}
+.sc_02 .love .img_wrap.reverse .back{
+  opacity: 1;
+  transition: opacity 0.1s;
+  transition-delay: 0.2s;
 }
 
 .sc_02 .sc02_list .mo_ston{
