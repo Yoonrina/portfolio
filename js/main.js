@@ -1,24 +1,54 @@
 $(function(){
 
   //opening
-  $('.opening').each(function(index,item){
+  function opening(){
+    let randomNumber = Math.floor(Math.random() * 5);
+    let imgName = ['bg01', 'bg02', 'bg03', 'bg04', 'bg05'];
+    $('.gemstone').children('img').attr('src', 'img/op/' + imgName[randomNumber] + '.jpg');
+  }
+  opening();
+  let set = setInterval(function(){
+              opening();
+              if($('.gemstone').hasClass('hidden')){
+                clearInterval(set);
+              }
+            },150);
 
-    gsap.fromTo(item,{
-      height:'100%',
-    },{
-      scrollTrigger:{
-        trigger:item,
-        start:"top 100%",
-        //markers:true,
-      },
-      height:0,
-      duration:0.5,
-      delay:1
-    })
+  gsap.fromTo('.opening',{
+    height:'100%',
+  },{
+    scrollTrigger:{
+      trigger:'.opening',
+      start:"top 100%",
+      //markers:true,
+    },
+    height:0,
+    duration:0.5,
+    delay:1
   })
   setTimeout(function() { 
     $('.gemstone').addClass('hidden'); 
   }, 1200);
+
+
+  // $('.opening').each(function(index,item){
+
+  //   gsap.fromTo(item,{
+  //     height:'100%',
+  //   },{
+  //     scrollTrigger:{
+  //       trigger:item,
+  //       start:"top 100%",
+  //       //markers:true,
+  //     },
+  //     height:0,
+  //     duration:0.5,
+  //     delay:1
+  //   })
+  // })
+  // setTimeout(function() { 
+  //   $('.gemstone').addClass('hidden'); 
+  // }, 1200);
 
 
   //cursor
@@ -37,7 +67,7 @@ $(function(){
   $('a').mouseover(function(){
     gsap.to('.cursor',{
       scale:4,
-      backgroundColor:'#f38c8c',
+      backgroundColor:'#791515',
       duration:0.2
     });
   })
@@ -45,7 +75,7 @@ $(function(){
   $('a').mouseleave(function(){
     gsap.to('.cursor',{
       scale:1,
-      backgroundColor:'#bce969',
+      backgroundColor:'#157928',
       duration:0.2
     });
   })
@@ -184,6 +214,10 @@ $(function(){
     },
     pagination: {
       el: ".swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + 'no' +(index + 1) + "</span>";
+      },
     },
   });
 
@@ -199,22 +233,19 @@ $(function(){
 
 
 
-  $('.scrub').each(function(index,item){
-  
-    gsap.fromTo(item,{
-      yPercent:-100,
-    },{
-      scrollTrigger:{
-        trigger:item,
-        start:"0% 100%",
-        end:"50% 0%",
-       // markers:true,
-       scrub:1,
-      },
-      yPercent:-50,
-      duration:1,
-    })
-  })
+  gsap.fromTo('.scrub',{
+    yPercent:-150,
+  },{
+    scrollTrigger:{
+      trigger:'footer',
+      start:"10% 100%",
+      end:"50% 0%",
+     //markers:true,
+     scrub:0.5,
+    },
+    yPercent:-50,
+    duration:1,
+  });
 
 
 
