@@ -1,54 +1,58 @@
 $(function(){
 
-  //opening
-  function opening(){
-    let randomNumber = Math.floor(Math.random() * 5);
-    let imgName = ['bg01', 'bg02', 'bg03', 'bg04', 'bg05'];
-    $('.gemstone').children('img').attr('src', 'img/op/' + imgName[randomNumber] + '.jpg');
-  }
-  opening();
-  let set = setInterval(function(){
-              opening();
-              if($('.gemstone').hasClass('hidden')){
-                clearInterval(set);
-              }
-            },150);
 
-  gsap.fromTo('.opening',{
-    height:'100%',
-  },{
-    scrollTrigger:{
-      trigger:'.opening',
-      start:"top 100%",
-      //markers:true,
-    },
-    height:0,
-    duration:0.5,
-    delay:1
+  //opening (gif이미지)
+  $('.opening').each(function(index,item){
+
+    gsap.fromTo(item,{
+      height:'100%',
+    },{
+      scrollTrigger:{
+        trigger:item,
+        start:"top 100%",
+        //markers:true,
+      },
+      height:0,
+      duration:0.5,
+      delay:1
+    })
   })
   setTimeout(function() { 
     $('.gemstone').addClass('hidden'); 
   }, 1200);
 
+  //opening (랜덤)
+  // function opening(){
+  //   let randomNumber = Math.floor(Math.random() * 5);
+  //   let imgName = ['bg01', 'bg02', 'bg03', 'bg04', 'bg05'];
+  //   $('.gemstone').children('img').attr('src', 'img/op/' + imgName[randomNumber] + '.jpg');
+  // }
+  // opening();
+  // let set = setInterval(function(){
+  //             opening();
+  //             if($('.gemstone').hasClass('hidden')){
+  //               clearInterval(set);
+  //             }
+  //           },150);
 
-  // $('.opening').each(function(index,item){
-
-  //   gsap.fromTo(item,{
-  //     height:'100%',
-  //   },{
-  //     scrollTrigger:{
-  //       trigger:item,
-  //       start:"top 100%",
-  //       //markers:true,
-  //     },
-  //     height:0,
-  //     duration:0.5,
-  //     delay:1
-  //   })
+  // gsap.fromTo('.opening',{
+  //   height:'100%',
+  // },{
+  //   scrollTrigger:{
+  //     trigger:'.opening',
+  //     start:"top 100%",
+  //     //markers:true,
+  //   },
+  //   height:0,
+  //   duration:0.5,
+  //   delay:1
   // })
   // setTimeout(function() { 
   //   $('.gemstone').addClass('hidden'); 
   // }, 1200);
+
+  
+
 
 
   //cursor
