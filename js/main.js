@@ -85,7 +85,7 @@ $(function(){
   })
 
   //logo
-  $('.logo > a').click(function(e){
+  $('.logo').click(function(e){
     e.preventDefault();
     $('html, body').stop().animate({scrollTop:0},500);
   });
@@ -110,6 +110,11 @@ $(function(){
   });
 
   motion.play();
+
+  setTimeout(function() { 
+    $('.spliteTitle').addClass('none'); 
+    $('.spliteTitle2').removeClass('none'); 
+  }, 3000);
 
 
 
