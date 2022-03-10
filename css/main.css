@@ -86,24 +86,19 @@ header{
   position: relative;
 }
 .logo .logonames{
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   color: #fff;
   font-size: 25px;
-  opacity: 0;
-  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%,-50%);
 }
-.logo .hv{
-  opacity: 1;
-  visibility: visible;
-}
+.logo .logo_up,
 .logo:hover .hv{
   opacity: 0;
   visibility: hidden;
 }
-.logo:hover .up{
+.logo:hover .logo_up{
   opacity: 1;
   visibility: visible;
 }
